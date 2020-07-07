@@ -1,0 +1,5164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model xmlns="http://www.cellml.org/cellml/1.1#" xmlns:cmeta="http://www.cellml.org/metadata/1.0#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqs="http://www.cellml.org/bqs/1.0#" xmlns:semsim="http://www.bhi.washington.edu/SemSim#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" name="NaK_ATPase_BG_annotated" cmeta:id="metaid0">
+  <units name="volt_per_sec">
+    <unit units="volt" />
+    <unit exponent="-1.0" units="second" />
+  </units>
+  <units name="J_per_mol">
+    <unit units="joule" />
+    <unit exponent="-1.0" units="mole" />
+  </units>
+  <units name="fmol_per_sec">
+    <unit exponent="-1.0" units="second" />
+    <unit units="fmol" />
+  </units>
+  <units name="fA">
+    <unit prefix="femto" units="ampere" />
+  </units>
+  <units name="fmol">
+    <unit prefix="femto" units="mole" />
+  </units>
+  <units name="fC">
+    <unit prefix="femto" units="coulomb" />
+  </units>
+  <units name="fF">
+    <unit prefix="femto" units="farad" />
+  </units>
+  <units name="J_per_K_per_mol">
+    <unit exponent="-1.0" units="mole" />
+    <unit exponent="-1.0" units="kelvin" />
+    <unit units="joule" />
+  </units>
+  <units name="C_per_mol">
+    <unit units="coulomb" />
+    <unit exponent="-1.0" units="mole" />
+  </units>
+  <units name="mM">
+    <unit prefix="milli" units="mole" />
+    <unit exponent="-1.0" units="litre" />
+  </units>
+  <units name="pL">
+    <unit prefix="pico" units="litre" />
+  </units>
+  <units name="per_fmol">
+    <unit exponent="-1.0" units="fmol" />
+  </units>
+  <component name="environment">
+    <variable cmeta:id="environment.t" initial_value="0" name="t" units="second" />
+    <variable cmeta:id="environment.R" initial_value="8.314" name="R" units="J_per_K_per_mol" />
+    <variable cmeta:id="environment.T" initial_value="310" name="T" units="kelvin" />
+    <variable cmeta:id="environment.F" initial_value="96485" name="F" units="C_per_mol" />
+    <variable cmeta:id="environment.q_mem" initial_value="-18408" name="q_mem" units="fC" />
+    <variable cmeta:id="environment.e_20" name="e_21" units="volt" />
+    <variable cmeta:id="environment.e_24" name="e_22" units="volt" />
+    <variable cmeta:id="environment.e_25" name="e_23" units="volt" />
+    <variable cmeta:id="environment.e_26" name="e_58" units="J_per_mol" />
+    <variable cmeta:id="environment.e_27" name="e_62" units="J_per_mol" />
+    <variable cmeta:id="environment.V_mem" name="V_mem" units="volt" />
+    <variable cmeta:id="environment.I_mem" name="I_mem" units="fA" />
+    <variable cmeta:id="environment.C_m" initial_value="153400" name="C_m" units="fF" />
+    <variable cmeta:id="environment.z_5" initial_value="-0.054951" name="z_5" units="dimensionless" />
+    <variable cmeta:id="environment.z_8" initial_value="-0.94505" name="z_8" units="dimensionless" />
+    <variable cmeta:id="environment.zF_5" name="zF_5" units="C_per_mol" />
+    <variable cmeta:id="environment.zF_8" name="zF_8" units="C_per_mol" />
+    <variable cmeta:id="environment.f_21" name="f_21" units="fA" />
+    <variable cmeta:id="environment.f_22" name="f_22" units="fA" />
+    <variable cmeta:id="environment.f_23" name="f_23" units="fA" />
+    <variable cmeta:id="environment.f_58" name="f_58" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_62" name="f_62" units="fmol_per_sec" />
+    <variable cmeta:id="environment.K_1" initial_value="101619537.2009" name="K_1" units="per_fmol" />
+    <variable cmeta:id="environment.K_10" initial_value="20459.5509" name="K_10" units="per_fmol" />
+    <variable cmeta:id="environment.K_11" initial_value="121.4456" name="K_11" units="per_fmol" />
+    <variable cmeta:id="environment.K_12" initial_value="3.1436" name="K_12" units="per_fmol" />
+    <variable cmeta:id="environment.K_13" initial_value="0.32549" name="K_13" units="per_fmol" />
+    <variable cmeta:id="environment.K_14" initial_value="156.3283" name="K_14" units="per_fmol" />
+    <variable cmeta:id="environment.K_15" initial_value="1977546.8577" name="K_15" units="per_fmol" />
+    <variable cmeta:id="environment.K_2" initial_value="63209.8623" name="K_2" units="per_fmol" />
+    <variable cmeta:id="environment.K_3" initial_value="157.2724" name="K_3" units="per_fmol" />
+    <variable cmeta:id="environment.K_4" initial_value="14.0748" name="K_4" units="per_fmol" />
+    <variable cmeta:id="environment.K_5" initial_value="5.0384" name="K_5" units="per_fmol" />
+    <variable cmeta:id="environment.K_6" initial_value="92.6964" name="K_6" units="per_fmol" />
+    <variable cmeta:id="environment.K_7" initial_value="4854.5924" name="K_7" units="per_fmol" />
+    <variable cmeta:id="environment.K_8" initial_value="15260.9786" name="K_8" units="per_fmol" />
+    <variable cmeta:id="environment.K_9" initial_value="13787022.8009" name="K_9" units="per_fmol" />
+    <variable cmeta:id="environment.K_H" initial_value="0.04565" name="K_H" units="per_fmol" />
+    <variable cmeta:id="environment.K_Ke" initial_value="0.009236" name="K_Ke" units="per_fmol" />
+    <variable cmeta:id="environment.K_Ki" initial_value="0.0012595" name="K_Ki" units="per_fmol" />
+    <variable cmeta:id="environment.K_MgADP" initial_value="7.976e-05" name="K_MgADP" units="per_fmol" />
+    <variable cmeta:id="environment.K_MgATP" initial_value="2.3715" name="K_MgATP" units="per_fmol" />
+    <variable cmeta:id="environment.K_Nae" initial_value="0.0061242" name="K_Nae" units="per_fmol" />
+    <variable cmeta:id="environment.K_Nai" initial_value="0.00083514" name="K_Nai" units="per_fmol" />
+    <variable cmeta:id="environment.K_P" initial_value="0.04565" name="K_P" units="per_fmol" />
+    <variable cmeta:id="environment.kappa_1" initial_value="330.5462" name="kappa_1" units="fmol_per_sec" />
+    <variable cmeta:id="environment.kappa_10" initial_value="259461.6507" name="kappa_10" units="fmol_per_sec" />
+    <variable cmeta:id="environment.kappa_11" initial_value="172042.3334" name="kappa_11" units="fmol_per_sec" />
+    <variable cmeta:id="environment.kappa_12" initial_value="6646440.3909" name="kappa_12" units="fmol_per_sec" />
+    <variable cmeta:id="environment.kappa_13" initial_value="597.4136" name="kappa_13" units="fmol_per_sec" />
+    <variable cmeta:id="environment.kappa_14" initial_value="70.9823" name="kappa_14" units="fmol_per_sec" />
+    <variable cmeta:id="environment.kappa_15" initial_value="0.015489" name="kappa_15" units="fmol_per_sec" />
+    <variable cmeta:id="environment.kappa_2" initial_value="132850.9145" name="kappa_2" units="fmol_per_sec" />
+    <variable cmeta:id="environment.kappa_3" initial_value="200356.0223" name="kappa_3" units="fmol_per_sec" />
+    <variable cmeta:id="environment.kappa_4" initial_value="2238785.3951" name="kappa_4" units="fmol_per_sec" />
+    <variable cmeta:id="environment.kappa_5" initial_value="10787.9052" name="kappa_5" units="fmol_per_sec" />
+    <variable cmeta:id="environment.kappa_6" initial_value="15.3533" name="kappa_6" units="fmol_per_sec" />
+    <variable cmeta:id="environment.kappa_7" initial_value="2.3822" name="kappa_7" units="fmol_per_sec" />
+    <variable cmeta:id="environment.kappa_8" initial_value="2.2855" name="kappa_8" units="fmol_per_sec" />
+    <variable cmeta:id="environment.kappa_9" initial_value="1540.1349" name="kappa_9" units="fmol_per_sec" />
+    <variable cmeta:id="environment.x_H" initial_value="0.0015128" name="x_H" units="fmol" />
+    <variable cmeta:id="environment.x_Ke" initial_value="27.9828" name="x_Ke" units="fmol" />
+    <variable cmeta:id="environment.x_Ki" initial_value="0.038" name="x_Ki" units="fmol" />
+    <variable cmeta:id="environment.x_MgADP" initial_value="0.038" name="x_MgADP" units="fmol" />
+    <variable cmeta:id="environment.x_MgATP" initial_value="380" name="x_MgATP" units="fmol" />
+    <variable cmeta:id="environment.x_Nae" initial_value="777.3" name="x_Nae" units="fmol" />
+    <variable cmeta:id="environment.x_Nai" initial_value="1900" name="x_Nai" units="fmol" />
+    <variable cmeta:id="environment.x_P7" initial_value="0.534480003169437" name="x_P7" units="fmol" />
+    <variable cmeta:id="environment.x_P_i" initial_value="0.038" name="x_P_i" units="fmol" />
+    <variable cmeta:id="environment.x_P14" initial_value="0.00626267917464576" name="x_P14" units="fmol" />
+    <variable cmeta:id="environment.x_P15" initial_value="0.000446049400255497" name="x_P15" units="fmol" />
+    <variable cmeta:id="environment.x_P1" initial_value="4.06727417747628e-10" name="x_P1" units="fmol" />
+    <variable cmeta:id="environment.x_P2" initial_value="1.84495437200145e-09" name="x_P2" units="fmol" />
+    <variable cmeta:id="environment.x_P3" initial_value="0.00183103460985586" name="x_P3" units="fmol" />
+    <variable cmeta:id="environment.x_P4" initial_value="0.0324604777886237" name="x_P4" units="fmol" />
+    <variable cmeta:id="environment.x_P5" initial_value="0.143884405731667" name="x_P5" units="fmol" />
+    <variable cmeta:id="environment.x_P6" initial_value="0.00968432811008776" name="x_P6" units="fmol" />
+    <variable cmeta:id="environment.x_P10" initial_value="7.9739635710452e-05" name="x_P10" units="fmol" />
+    <variable cmeta:id="environment.x_P11" initial_value="0.00282186679243115" name="x_P11" units="fmol" />
+    <variable cmeta:id="environment.x_P12" initial_value="0.0281498805518011" name="x_P12" units="fmol" />
+    <variable cmeta:id="environment.x_P13" initial_value="0.0702590453291214" name="x_P13" units="fmol" />
+    <variable cmeta:id="environment.x_P8" initial_value="0.169644923453282" name="x_P8" units="fmol" />
+    <variable cmeta:id="environment.x_P9" initial_value="5.63940980127252e-07" name="x_P9" units="fmol" />
+    <variable cmeta:id="environment.e_1" name="e_1" units="J_per_mol" />
+    <variable cmeta:id="environment.e_2" name="e_2" units="J_per_mol" />
+    <variable cmeta:id="environment.e_3" name="e_3" units="J_per_mol" />
+    <variable cmeta:id="environment.e_4" name="e_4" units="J_per_mol" />
+    <variable cmeta:id="environment.e_5" name="e_5" units="J_per_mol" />
+    <variable cmeta:id="environment.e_6" name="e_6" units="J_per_mol" />
+    <variable cmeta:id="environment.e_7" name="e_7" units="J_per_mol" />
+    <variable cmeta:id="environment.e_8" name="e_8" units="J_per_mol" />
+    <variable cmeta:id="environment.e_9" name="e_9" units="J_per_mol" />
+    <variable cmeta:id="environment.e_10" name="e_10" units="J_per_mol" />
+    <variable cmeta:id="environment.e_11" name="e_11" units="J_per_mol" />
+    <variable cmeta:id="environment.e_12" name="e_12" units="J_per_mol" />
+    <variable cmeta:id="environment.e_13" name="e_13" units="J_per_mol" />
+    <variable cmeta:id="environment.e_14" name="e_14" units="J_per_mol" />
+    <variable cmeta:id="environment.e_15" name="e_15" units="J_per_mol" />
+    <variable cmeta:id="environment.e_16" name="e_16" units="J_per_mol" />
+    <variable cmeta:id="environment.e_17" name="e_17" units="J_per_mol" />
+    <variable cmeta:id="environment.e_18" name="e_18" units="J_per_mol" />
+    <variable cmeta:id="environment.e_19" name="e_19" units="J_per_mol" />
+    <variable cmeta:id="metaid1" name="e_20" units="J_per_mol" />
+    <variable cmeta:id="metaid2" name="e_24" units="J_per_mol" />
+    <variable cmeta:id="metaid3" name="e_25" units="J_per_mol" />
+    <variable cmeta:id="metaid4" name="e_26" units="J_per_mol" />
+    <variable cmeta:id="metaid5" name="e_27" units="J_per_mol" />
+    <variable cmeta:id="environment.e_28" name="e_28" units="J_per_mol" />
+    <variable cmeta:id="environment.e_29" name="e_29" units="J_per_mol" />
+    <variable cmeta:id="environment.e_30" name="e_30" units="J_per_mol" />
+    <variable cmeta:id="environment.e_31" name="e_31" units="J_per_mol" />
+    <variable cmeta:id="environment.e_32" name="e_32" units="J_per_mol" />
+    <variable cmeta:id="environment.e_33" name="e_33" units="J_per_mol" />
+    <variable cmeta:id="environment.e_34" name="e_34" units="J_per_mol" />
+    <variable cmeta:id="environment.e_35" name="e_35" units="J_per_mol" />
+    <variable cmeta:id="environment.e_36" name="e_36" units="J_per_mol" />
+    <variable cmeta:id="environment.e_37" name="e_37" units="J_per_mol" />
+    <variable cmeta:id="environment.e_38" name="e_38" units="J_per_mol" />
+    <variable cmeta:id="environment.e_39" name="e_39" units="J_per_mol" />
+    <variable cmeta:id="environment.e_40" name="e_40" units="J_per_mol" />
+    <variable cmeta:id="environment.e_41" name="e_41" units="J_per_mol" />
+    <variable cmeta:id="environment.e_42" name="e_42" units="J_per_mol" />
+    <variable cmeta:id="environment.e_43" name="e_43" units="J_per_mol" />
+    <variable cmeta:id="environment.e_44" name="e_44" units="J_per_mol" />
+    <variable cmeta:id="environment.e_45" name="e_45" units="J_per_mol" />
+    <variable cmeta:id="environment.e_46" name="e_46" units="J_per_mol" />
+    <variable cmeta:id="environment.e_47" name="e_47" units="J_per_mol" />
+    <variable cmeta:id="environment.e_48" name="e_48" units="J_per_mol" />
+    <variable cmeta:id="environment.e_49" name="e_49" units="J_per_mol" />
+    <variable cmeta:id="environment.e_50" name="e_50" units="J_per_mol" />
+    <variable cmeta:id="environment.e_51" name="e_51" units="J_per_mol" />
+    <variable cmeta:id="environment.e_52" name="e_52" units="J_per_mol" />
+    <variable cmeta:id="environment.e_53" name="e_53" units="J_per_mol" />
+    <variable cmeta:id="environment.e_54" name="e_54" units="J_per_mol" />
+    <variable cmeta:id="environment.e_55" name="e_55" units="J_per_mol" />
+    <variable cmeta:id="environment.e_56" name="e_56" units="J_per_mol" />
+    <variable cmeta:id="environment.e_57" name="e_57" units="J_per_mol" />
+    <variable cmeta:id="environment.e_59" name="e_59" units="J_per_mol" />
+    <variable cmeta:id="environment.e_60" name="e_60" units="J_per_mol" />
+    <variable cmeta:id="environment.e_61" name="e_61" units="J_per_mol" />
+    <variable cmeta:id="environment.e_63" name="e_63" units="J_per_mol" />
+    <variable cmeta:id="environment.e_64" name="e_64" units="J_per_mol" />
+    <variable cmeta:id="environment.e_65" name="e_65" units="J_per_mol" />
+    <variable cmeta:id="environment.e_66" name="e_66" units="J_per_mol" />
+    <variable cmeta:id="environment.e_67" name="e_67" units="J_per_mol" />
+    <variable cmeta:id="environment.e_68" name="e_68" units="J_per_mol" />
+    <variable cmeta:id="environment.e_69" name="e_69" units="J_per_mol" />
+    <variable cmeta:id="environment.e_70" name="e_70" units="J_per_mol" />
+    <variable cmeta:id="environment.e_71" name="e_71" units="J_per_mol" />
+    <variable cmeta:id="environment.e_72" name="e_72" units="J_per_mol" />
+    <variable cmeta:id="environment.e_73" name="e_73" units="J_per_mol" />
+    <variable cmeta:id="environment.e_74" name="e_74" units="J_per_mol" />
+    <variable cmeta:id="environment.e_75" name="e_75" units="J_per_mol" />
+    <variable cmeta:id="environment.e_76" name="e_76" units="J_per_mol" />
+    <variable cmeta:id="environment.e_77" name="e_77" units="J_per_mol" />
+    <variable cmeta:id="environment.e_78" name="e_78" units="J_per_mol" />
+    <variable cmeta:id="environment.e_79" name="e_79" units="J_per_mol" />
+    <variable cmeta:id="environment.e_80" name="e_80" units="J_per_mol" />
+    <variable cmeta:id="environment.e_81" name="e_81" units="J_per_mol" />
+    <variable cmeta:id="environment.e_82" name="e_82" units="J_per_mol" />
+    <variable cmeta:id="environment.e_83" name="e_83" units="J_per_mol" />
+    <variable cmeta:id="environment.e_84" name="e_84" units="J_per_mol" />
+    <variable cmeta:id="environment.e_85" name="e_85" units="J_per_mol" />
+    <variable cmeta:id="environment.e_86" name="e_86" units="J_per_mol" />
+    <variable cmeta:id="environment.f_1" name="f_1" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_2" name="f_2" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_3" name="f_3" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_4" name="f_4" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_5" name="f_5" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_6" name="f_6" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_7" name="f_7" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_8" name="f_8" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_9" name="f_9" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_10" name="f_10" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_11" name="f_11" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_12" name="f_12" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_13" name="f_13" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_14" name="f_14" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_15" name="f_15" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_16" name="f_16" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_17" name="f_17" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_18" name="f_18" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_19" name="f_19" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_20" name="f_20" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_24" name="f_24" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_25" name="f_25" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_26" name="f_26" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_27" name="f_27" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_28" name="f_28" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_29" name="f_29" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_30" name="f_30" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_31" name="f_31" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_32" name="f_32" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_33" name="f_33" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_34" name="f_34" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_35" name="f_35" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_36" name="f_36" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_37" name="f_37" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_38" name="f_38" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_39" name="f_39" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_40" name="f_40" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_41" name="f_41" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_42" name="f_42" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_43" name="f_43" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_44" name="f_44" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_45" name="f_45" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_46" name="f_46" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_47" name="f_47" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_48" name="f_48" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_49" name="f_49" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_50" name="f_50" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_51" name="f_51" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_52" name="f_52" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_53" name="f_53" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_54" name="f_54" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_55" name="f_55" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_56" name="f_56" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_57" name="f_57" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_59" name="f_59" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_60" name="f_60" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_61" name="f_61" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_63" name="f_63" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_64" name="f_64" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_65" name="f_65" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_66" name="f_66" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_67" name="f_67" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_68" name="f_68" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_69" name="f_69" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_70" name="f_70" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_71" name="f_71" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_72" name="f_72" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_73" name="f_73" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_74" name="f_74" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_75" name="f_75" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_76" name="f_76" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_77" name="f_77" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_78" name="f_78" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_79" name="f_79" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_80" name="f_80" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_81" name="f_81" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_82" name="f_82" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_83" name="f_83" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_84" name="f_84" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_85" name="f_85" units="fmol_per_sec" />
+    <variable cmeta:id="environment.f_86" name="f_86" units="fmol_per_sec" />
+    <variable cmeta:id="environment.mu_H" name="mu_H" units="J_per_mol" />
+    <variable cmeta:id="environment.v_H" name="v_H" units="fmol_per_sec" />
+    <variable cmeta:id="environment.mu_Ke" name="mu_Ke" units="J_per_mol" />
+    <variable cmeta:id="environment.v_Ke" name="v_Ke" units="fmol_per_sec" />
+    <variable cmeta:id="environment.mu_Ki" name="mu_Ki" units="J_per_mol" />
+    <variable cmeta:id="environment.v_Ki" name="v_Ki" units="fmol_per_sec" />
+    <variable cmeta:id="environment.mu_MgADP" name="mu_MgADP" units="J_per_mol" />
+    <variable cmeta:id="environment.v_MgADP" name="v_MgADP" units="fmol_per_sec" />
+    <variable cmeta:id="environment.mu_MgATP" name="mu_MgATP" units="J_per_mol" />
+    <variable cmeta:id="environment.v_MgATP" name="v_MgATP" units="fmol_per_sec" />
+    <variable cmeta:id="environment.mu_Nae" name="mu_Nae" units="J_per_mol" />
+    <variable cmeta:id="environment.v_Nae" name="v_Nae" units="fmol_per_sec" />
+    <variable cmeta:id="environment.mu_Nai" name="mu_Nai" units="J_per_mol" />
+    <variable cmeta:id="environment.v_Nai" name="v_Nai" units="fmol_per_sec" />
+    <variable cmeta:id="environment.mu_P7" name="mu_P7" units="J_per_mol" />
+    <variable cmeta:id="environment.v_P7" name="v_P7" units="fmol_per_sec" />
+    <variable cmeta:id="environment.mu_P_i" name="mu_P_i" units="J_per_mol" />
+    <variable cmeta:id="environment.v_P_i" name="v_P_i" units="fmol_per_sec" />
+    <variable cmeta:id="environment.Af_R13" name="Af_R13" units="J_per_mol" />
+    <variable cmeta:id="environment.Ar_R13" name="Ar_R13" units="J_per_mol" />
+    <variable cmeta:id="environment.v_R13" name="v_R13" units="fmol_per_sec" />
+    <variable cmeta:id="environment.Af_R15" name="Af_R15" units="J_per_mol" />
+    <variable cmeta:id="environment.Ar_R15" name="Ar_R15" units="J_per_mol" />
+    <variable cmeta:id="environment.v_R15" name="v_R15" units="fmol_per_sec" />
+    <variable cmeta:id="environment.Af_R6" name="Af_R6" units="J_per_mol" />
+    <variable cmeta:id="environment.Ar_R6" name="Ar_R6" units="J_per_mol" />
+    <variable cmeta:id="environment.v_R6" name="v_R6" units="fmol_per_sec" />
+    <variable cmeta:id="environment.Af_R7" name="Af_R7" units="J_per_mol" />
+    <variable cmeta:id="environment.Ar_R7" name="Ar_R7" units="J_per_mol" />
+    <variable cmeta:id="environment.v_R7" name="v_R7" units="fmol_per_sec" />
+    <variable cmeta:id="environment.mu_P14" name="mu_P14" units="J_per_mol" />
+    <variable cmeta:id="environment.v_P14" name="v_P14" units="fmol_per_sec" />
+    <variable cmeta:id="environment.mu_P15" name="mu_P15" units="J_per_mol" />
+    <variable cmeta:id="environment.v_P15" name="v_P15" units="fmol_per_sec" />
+    <variable cmeta:id="environment.Af_R14" name="Af_R14" units="J_per_mol" />
+    <variable cmeta:id="environment.Ar_R14" name="Ar_R14" units="J_per_mol" />
+    <variable cmeta:id="environment.v_R14" name="v_R14" units="fmol_per_sec" />
+    <variable cmeta:id="environment.mu_P1" name="mu_P1" units="J_per_mol" />
+    <variable cmeta:id="environment.v_P1" name="v_P1" units="fmol_per_sec" />
+    <variable cmeta:id="environment.mu_P2" name="mu_P2" units="J_per_mol" />
+    <variable cmeta:id="environment.v_P2" name="v_P2" units="fmol_per_sec" />
+    <variable cmeta:id="environment.mu_P3" name="mu_P3" units="J_per_mol" />
+    <variable cmeta:id="environment.v_P3" name="v_P3" units="fmol_per_sec" />
+    <variable cmeta:id="environment.mu_P4" name="mu_P4" units="J_per_mol" />
+    <variable cmeta:id="environment.v_P4" name="v_P4" units="fmol_per_sec" />
+    <variable cmeta:id="environment.mu_P5" name="mu_P5" units="J_per_mol" />
+    <variable cmeta:id="environment.v_P5" name="v_P5" units="fmol_per_sec" />
+    <variable cmeta:id="environment.mu_P6" name="mu_P6" units="J_per_mol" />
+    <variable cmeta:id="environment.v_P6" name="v_P6" units="fmol_per_sec" />
+    <variable cmeta:id="environment.Af_R1" name="Af_R1" units="J_per_mol" />
+    <variable cmeta:id="environment.Ar_R1" name="Ar_R1" units="J_per_mol" />
+    <variable cmeta:id="environment.v_R1" name="v_R1" units="fmol_per_sec" />
+    <variable cmeta:id="environment.Af_R2" name="Af_R2" units="J_per_mol" />
+    <variable cmeta:id="environment.Ar_R2" name="Ar_R2" units="J_per_mol" />
+    <variable cmeta:id="environment.v_R2" name="v_R2" units="fmol_per_sec" />
+    <variable cmeta:id="environment.Af_R3" name="Af_R3" units="J_per_mol" />
+    <variable cmeta:id="environment.Ar_R3" name="Ar_R3" units="J_per_mol" />
+    <variable cmeta:id="environment.v_R3" name="v_R3" units="fmol_per_sec" />
+    <variable cmeta:id="environment.Af_R4" name="Af_R4" units="J_per_mol" />
+    <variable cmeta:id="environment.Ar_R4" name="Ar_R4" units="J_per_mol" />
+    <variable cmeta:id="environment.v_R4" name="v_R4" units="fmol_per_sec" />
+    <variable cmeta:id="environment.Af_R5" name="Af_R5" units="J_per_mol" />
+    <variable cmeta:id="environment.Ar_R5" name="Ar_R5" units="J_per_mol" />
+    <variable cmeta:id="environment.v_R5" name="v_R5" units="fmol_per_sec" />
+    <variable cmeta:id="environment.mu_P10" name="mu_P10" units="J_per_mol" />
+    <variable cmeta:id="environment.v_P10" name="v_P10" units="fmol_per_sec" />
+    <variable cmeta:id="environment.mu_P11" name="mu_P11" units="J_per_mol" />
+    <variable cmeta:id="environment.v_P11" name="v_P11" units="fmol_per_sec" />
+    <variable cmeta:id="environment.mu_P12" name="mu_P12" units="J_per_mol" />
+    <variable cmeta:id="environment.v_P12" name="v_P12" units="fmol_per_sec" />
+    <variable cmeta:id="environment.mu_P13" name="mu_P13" units="J_per_mol" />
+    <variable cmeta:id="environment.v_P13" name="v_P13" units="fmol_per_sec" />
+    <variable cmeta:id="environment.mu_P8" name="mu_P8" units="J_per_mol" />
+    <variable cmeta:id="environment.v_P8" name="v_P8" units="fmol_per_sec" />
+    <variable cmeta:id="environment.mu_P9" name="mu_P9" units="J_per_mol" />
+    <variable cmeta:id="environment.v_P9" name="v_P9" units="fmol_per_sec" />
+    <variable cmeta:id="environment.Af_R10" name="Af_R10" units="J_per_mol" />
+    <variable cmeta:id="environment.Ar_R10" name="Ar_R10" units="J_per_mol" />
+    <variable cmeta:id="environment.v_R10" name="v_R10" units="fmol_per_sec" />
+    <variable cmeta:id="environment.Af_R11" name="Af_R11" units="J_per_mol" />
+    <variable cmeta:id="environment.Ar_R11" name="Ar_R11" units="J_per_mol" />
+    <variable cmeta:id="environment.v_R11" name="v_R11" units="fmol_per_sec" />
+    <variable cmeta:id="environment.Af_R12" name="Af_R12" units="J_per_mol" />
+    <variable cmeta:id="environment.Ar_R12" name="Ar_R12" units="J_per_mol" />
+    <variable cmeta:id="environment.v_R12" name="v_R12" units="fmol_per_sec" />
+    <variable cmeta:id="environment.Af_R8" name="Af_R8" units="J_per_mol" />
+    <variable cmeta:id="environment.Ar_R8" name="Ar_R8" units="J_per_mol" />
+    <variable cmeta:id="environment.v_R8" name="v_R8" units="fmol_per_sec" />
+    <variable cmeta:id="environment.Af_R9" name="Af_R9" units="J_per_mol" />
+    <variable cmeta:id="environment.Ar_R9" name="Ar_R9" units="J_per_mol" />
+    <variable cmeta:id="environment.v_R9" name="v_R9" units="fmol_per_sec" />
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <apply>
+        <eq />
+        <ci>e_23</ci>
+        <ci>V_mem</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>I_mem</ci>
+        <ci>f_23</ci>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>q_mem</ci>
+        </apply>
+        <apply>
+          <times />
+          <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="volt_per_sec">0.001</cn>
+          <ci>C_m</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>V_mem</ci>
+        <apply>
+          <divide />
+          <ci>q_mem</ci>
+          <ci>C_m</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>zF_5</ci>
+        <apply>
+          <times />
+          <ci>z_5</ci>
+          <ci>F</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>zF_8</ci>
+        <apply>
+          <times />
+          <ci>z_8</ci>
+          <ci>F</ci>
+        </apply>
+      </apply>
+      <!-- Power conversion
+ TF:zF_5-->
+      <apply>
+        <eq />
+        <ci>e_58</ci>
+        <apply>
+          <times />
+          <ci>zF_5</ci>
+          <ci>e_22</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_22</ci>
+        <apply>
+          <times />
+          <ci>zF_5</ci>
+          <ci>f_58</ci>
+        </apply>
+      </apply>
+      <!-- TF:zF_8-->
+      <apply>
+        <eq />
+        <ci>e_62</ci>
+        <apply>
+          <times />
+          <ci>zF_8</ci>
+          <ci>e_21</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_21</ci>
+        <apply>
+          <times />
+          <ci>zF_8</ci>
+          <ci>f_62</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_14</ci>
+        <ci>mu_H</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_H</ci>
+        <ci>f_14</ci>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>x_H</ci>
+        </apply>
+        <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="fmol_per_sec">0</cn>
+      </apply>
+      <apply>
+        <eq />
+        <ci>mu_H</ci>
+        <apply>
+          <times />
+          <ci>R</ci>
+          <ci>T</ci>
+          <apply>
+            <ln />
+            <apply>
+              <times />
+              <ci>K_H</ci>
+              <ci>x_H</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_11</ci>
+        <ci>mu_Ke</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_Ke</ci>
+        <ci>f_11</ci>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>x_Ke</ci>
+        </apply>
+        <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="fmol_per_sec">0</cn>
+      </apply>
+      <apply>
+        <eq />
+        <ci>mu_Ke</ci>
+        <apply>
+          <times />
+          <ci>R</ci>
+          <ci>T</ci>
+          <apply>
+            <ln />
+            <apply>
+              <times />
+              <ci>K_Ke</ci>
+              <ci>x_Ke</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_2</ci>
+        <ci>mu_Ki</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_Ki</ci>
+        <ci>f_2</ci>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>x_Ki</ci>
+        </apply>
+        <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="fmol_per_sec">0</cn>
+      </apply>
+      <apply>
+        <eq />
+        <ci>mu_Ki</ci>
+        <apply>
+          <times />
+          <ci>R</ci>
+          <ci>T</ci>
+          <apply>
+            <ln />
+            <apply>
+              <times />
+              <ci>K_Ki</ci>
+              <ci>x_Ki</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_9</ci>
+        <ci>mu_MgADP</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_MgADP</ci>
+        <ci>f_9</ci>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>x_MgADP</ci>
+        </apply>
+        <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="fmol_per_sec">0</cn>
+      </apply>
+      <apply>
+        <eq />
+        <ci>mu_MgADP</ci>
+        <apply>
+          <times />
+          <ci>R</ci>
+          <ci>T</ci>
+          <apply>
+            <ln />
+            <apply>
+              <times />
+              <ci>K_MgADP</ci>
+              <ci>x_MgADP</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_16</ci>
+        <ci>mu_MgATP</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_MgATP</ci>
+        <ci>f_16</ci>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>x_MgATP</ci>
+        </apply>
+        <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="fmol_per_sec">0</cn>
+      </apply>
+      <apply>
+        <eq />
+        <ci>mu_MgATP</ci>
+        <apply>
+          <times />
+          <ci>R</ci>
+          <ci>T</ci>
+          <apply>
+            <ln />
+            <apply>
+              <times />
+              <ci>K_MgATP</ci>
+              <ci>x_MgATP</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_19</ci>
+        <ci>mu_Nae</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_Nae</ci>
+        <ci>f_19</ci>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>x_Nae</ci>
+        </apply>
+        <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="fmol_per_sec">0</cn>
+      </apply>
+      <apply>
+        <eq />
+        <ci>mu_Nae</ci>
+        <apply>
+          <times />
+          <ci>R</ci>
+          <ci>T</ci>
+          <apply>
+            <ln />
+            <apply>
+              <times />
+              <ci>K_Nae</ci>
+              <ci>x_Nae</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_5</ci>
+        <ci>mu_Nai</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_Nai</ci>
+        <ci>f_5</ci>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>x_Nai</ci>
+        </apply>
+        <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="fmol_per_sec">0</cn>
+      </apply>
+      <apply>
+        <eq />
+        <ci>mu_Nai</ci>
+        <apply>
+          <times />
+          <ci>R</ci>
+          <ci>T</ci>
+          <apply>
+            <ln />
+            <apply>
+              <times />
+              <ci>K_Nai</ci>
+              <ci>x_Nai</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_8</ci>
+        <ci>mu_P7</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_P7</ci>
+        <ci>f_8</ci>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>x_P7</ci>
+        </apply>
+        <ci>v_P7</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>mu_P7</ci>
+        <apply>
+          <times />
+          <ci>R</ci>
+          <ci>T</ci>
+          <apply>
+            <ln />
+            <apply>
+              <times />
+              <ci>K_7</ci>
+              <ci>x_P7</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_15</ci>
+        <ci>mu_P_i</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_P_i</ci>
+        <ci>f_15</ci>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>x_P_i</ci>
+        </apply>
+        <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="fmol_per_sec">0</cn>
+      </apply>
+      <apply>
+        <eq />
+        <ci>mu_P_i</ci>
+        <apply>
+          <times />
+          <ci>R</ci>
+          <ci>T</ci>
+          <apply>
+            <ln />
+            <apply>
+              <times />
+              <ci>K_P</ci>
+              <ci>x_P_i</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Af_R13</ci>
+        <ci>e_12</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Ar_R13</ci>
+        <ci>e_13</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_12</ci>
+        <ci>v_R13</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_13</ci>
+        <ci>v_R13</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_R13</ci>
+        <apply>
+          <times />
+          <ci>kappa_13</ci>
+          <apply>
+            <minus />
+            <apply>
+              <exp />
+              <apply>
+                <divide />
+                <ci>Af_R13</ci>
+                <apply>
+                  <times />
+                  <ci>R</ci>
+                  <ci>T</ci>
+                </apply>
+              </apply>
+            </apply>
+            <apply>
+              <exp />
+              <apply>
+                <divide />
+                <ci>Ar_R13</ci>
+                <apply>
+                  <times />
+                  <ci>R</ci>
+                  <ci>T</ci>
+                </apply>
+              </apply>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Af_R15</ci>
+        <ci>e_17</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Ar_R15</ci>
+        <ci>e_4</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_17</ci>
+        <ci>v_R15</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_4</ci>
+        <ci>v_R15</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_R15</ci>
+        <apply>
+          <times />
+          <ci>kappa_15</ci>
+          <apply>
+            <minus />
+            <apply>
+              <exp />
+              <apply>
+                <divide />
+                <ci>Af_R15</ci>
+                <apply>
+                  <times />
+                  <ci>R</ci>
+                  <ci>T</ci>
+                </apply>
+              </apply>
+            </apply>
+            <apply>
+              <exp />
+              <apply>
+                <divide />
+                <ci>Ar_R15</ci>
+                <apply>
+                  <times />
+                  <ci>R</ci>
+                  <ci>T</ci>
+                </apply>
+              </apply>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Af_R6</ci>
+        <ci>e_1</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Ar_R6</ci>
+        <ci>e_6</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_1</ci>
+        <ci>v_R6</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_6</ci>
+        <ci>v_R6</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_R6</ci>
+        <apply>
+          <times />
+          <ci>kappa_6</ci>
+          <apply>
+            <minus />
+            <apply>
+              <exp />
+              <apply>
+                <divide />
+                <ci>Af_R6</ci>
+                <apply>
+                  <times />
+                  <ci>R</ci>
+                  <ci>T</ci>
+                </apply>
+              </apply>
+            </apply>
+            <apply>
+              <exp />
+              <apply>
+                <divide />
+                <ci>Ar_R6</ci>
+                <apply>
+                  <times />
+                  <ci>R</ci>
+                  <ci>T</ci>
+                </apply>
+              </apply>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Af_R7</ci>
+        <ci>e_10</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Ar_R7</ci>
+        <ci>e_20</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_10</ci>
+        <ci>v_R7</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_20</ci>
+        <ci>v_R7</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_R7</ci>
+        <apply>
+          <times />
+          <ci>kappa_7</ci>
+          <apply>
+            <minus />
+            <apply>
+              <exp />
+              <apply>
+                <divide />
+                <ci>Af_R7</ci>
+                <apply>
+                  <times />
+                  <ci>R</ci>
+                  <ci>T</ci>
+                </apply>
+              </apply>
+            </apply>
+            <apply>
+              <exp />
+              <apply>
+                <divide />
+                <ci>Ar_R7</ci>
+                <apply>
+                  <times />
+                  <ci>R</ci>
+                  <ci>T</ci>
+                </apply>
+              </apply>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_24</ci>
+        <ci>mu_P14</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_P14</ci>
+        <ci>f_24</ci>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>x_P14</ci>
+        </apply>
+        <ci>v_P14</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>mu_P14</ci>
+        <apply>
+          <times />
+          <ci>R</ci>
+          <ci>T</ci>
+          <apply>
+            <ln />
+            <apply>
+              <times />
+              <ci>K_14</ci>
+              <ci>x_P14</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_28</ci>
+        <ci>mu_P15</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_P15</ci>
+        <ci>f_28</ci>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>x_P15</ci>
+        </apply>
+        <ci>v_P15</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>mu_P15</ci>
+        <apply>
+          <times />
+          <ci>R</ci>
+          <ci>T</ci>
+          <apply>
+            <ln />
+            <apply>
+              <times />
+              <ci>K_15</ci>
+              <ci>x_P15</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Af_R14</ci>
+        <ci>e_26</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Ar_R14</ci>
+        <ci>e_27</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_26</ci>
+        <ci>v_R14</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_27</ci>
+        <ci>v_R14</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_R14</ci>
+        <apply>
+          <times />
+          <ci>kappa_14</ci>
+          <apply>
+            <minus />
+            <apply>
+              <exp />
+              <apply>
+                <divide />
+                <ci>Af_R14</ci>
+                <apply>
+                  <times />
+                  <ci>R</ci>
+                  <ci>T</ci>
+                </apply>
+              </apply>
+            </apply>
+            <apply>
+              <exp />
+              <apply>
+                <divide />
+                <ci>Ar_R14</ci>
+                <apply>
+                  <times />
+                  <ci>R</ci>
+                  <ci>T</ci>
+                </apply>
+              </apply>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_30</ci>
+        <ci>mu_P1</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_P1</ci>
+        <ci>f_30</ci>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>x_P1</ci>
+        </apply>
+        <ci>v_P1</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>mu_P1</ci>
+        <apply>
+          <times />
+          <ci>R</ci>
+          <ci>T</ci>
+          <apply>
+            <ln />
+            <apply>
+              <times />
+              <ci>K_1</ci>
+              <ci>x_P1</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_39</ci>
+        <ci>mu_P2</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_P2</ci>
+        <ci>f_39</ci>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>x_P2</ci>
+        </apply>
+        <ci>v_P2</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>mu_P2</ci>
+        <apply>
+          <times />
+          <ci>R</ci>
+          <ci>T</ci>
+          <apply>
+            <ln />
+            <apply>
+              <times />
+              <ci>K_2</ci>
+              <ci>x_P2</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_34</ci>
+        <ci>mu_P3</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_P3</ci>
+        <ci>f_34</ci>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>x_P3</ci>
+        </apply>
+        <ci>v_P3</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>mu_P3</ci>
+        <apply>
+          <times />
+          <ci>R</ci>
+          <ci>T</ci>
+          <apply>
+            <ln />
+            <apply>
+              <times />
+              <ci>K_3</ci>
+              <ci>x_P3</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_44</ci>
+        <ci>mu_P4</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_P4</ci>
+        <ci>f_44</ci>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>x_P4</ci>
+        </apply>
+        <ci>v_P4</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>mu_P4</ci>
+        <apply>
+          <times />
+          <ci>R</ci>
+          <ci>T</ci>
+          <apply>
+            <ln />
+            <apply>
+              <times />
+              <ci>K_4</ci>
+              <ci>x_P4</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_51</ci>
+        <ci>mu_P5</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_P5</ci>
+        <ci>f_51</ci>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>x_P5</ci>
+        </apply>
+        <ci>v_P5</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>mu_P5</ci>
+        <apply>
+          <times />
+          <ci>R</ci>
+          <ci>T</ci>
+          <apply>
+            <ln />
+            <apply>
+              <times />
+              <ci>K_5</ci>
+              <ci>x_P5</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_57</ci>
+        <ci>mu_P6</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_P6</ci>
+        <ci>f_57</ci>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>x_P6</ci>
+        </apply>
+        <ci>v_P6</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>mu_P6</ci>
+        <apply>
+          <times />
+          <ci>R</ci>
+          <ci>T</ci>
+          <apply>
+            <ln />
+            <apply>
+              <times />
+              <ci>K_6</ci>
+              <ci>x_P6</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Af_R1</ci>
+        <ci>e_35</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Ar_R1</ci>
+        <ci>e_36</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_35</ci>
+        <ci>v_R1</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_36</ci>
+        <ci>v_R1</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_R1</ci>
+        <apply>
+          <times />
+          <ci>kappa_1</ci>
+          <apply>
+            <minus />
+            <apply>
+              <exp />
+              <apply>
+                <divide />
+                <ci>Af_R1</ci>
+                <apply>
+                  <times />
+                  <ci>R</ci>
+                  <ci>T</ci>
+                </apply>
+              </apply>
+            </apply>
+            <apply>
+              <exp />
+              <apply>
+                <divide />
+                <ci>Ar_R1</ci>
+                <apply>
+                  <times />
+                  <ci>R</ci>
+                  <ci>T</ci>
+                </apply>
+              </apply>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Af_R2</ci>
+        <ci>e_31</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Ar_R2</ci>
+        <ci>e_32</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_31</ci>
+        <ci>v_R2</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_32</ci>
+        <ci>v_R2</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_R2</ci>
+        <apply>
+          <times />
+          <ci>kappa_2</ci>
+          <apply>
+            <minus />
+            <apply>
+              <exp />
+              <apply>
+                <divide />
+                <ci>Af_R2</ci>
+                <apply>
+                  <times />
+                  <ci>R</ci>
+                  <ci>T</ci>
+                </apply>
+              </apply>
+            </apply>
+            <apply>
+              <exp />
+              <apply>
+                <divide />
+                <ci>Ar_R2</ci>
+                <apply>
+                  <times />
+                  <ci>R</ci>
+                  <ci>T</ci>
+                </apply>
+              </apply>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Af_R3</ci>
+        <ci>e_42</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Ar_R3</ci>
+        <ci>e_43</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_42</ci>
+        <ci>v_R3</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_43</ci>
+        <ci>v_R3</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_R3</ci>
+        <apply>
+          <times />
+          <ci>kappa_3</ci>
+          <apply>
+            <minus />
+            <apply>
+              <exp />
+              <apply>
+                <divide />
+                <ci>Af_R3</ci>
+                <apply>
+                  <times />
+                  <ci>R</ci>
+                  <ci>T</ci>
+                </apply>
+              </apply>
+            </apply>
+            <apply>
+              <exp />
+              <apply>
+                <divide />
+                <ci>Ar_R3</ci>
+                <apply>
+                  <times />
+                  <ci>R</ci>
+                  <ci>T</ci>
+                </apply>
+              </apply>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Af_R4</ci>
+        <ci>e_46</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Ar_R4</ci>
+        <ci>e_47</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_46</ci>
+        <ci>v_R4</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_47</ci>
+        <ci>v_R4</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_R4</ci>
+        <apply>
+          <times />
+          <ci>kappa_4</ci>
+          <apply>
+            <minus />
+            <apply>
+              <exp />
+              <apply>
+                <divide />
+                <ci>Af_R4</ci>
+                <apply>
+                  <times />
+                  <ci>R</ci>
+                  <ci>T</ci>
+                </apply>
+              </apply>
+            </apply>
+            <apply>
+              <exp />
+              <apply>
+                <divide />
+                <ci>Ar_R4</ci>
+                <apply>
+                  <times />
+                  <ci>R</ci>
+                  <ci>T</ci>
+                </apply>
+              </apply>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Af_R5</ci>
+        <ci>e_53</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Ar_R5</ci>
+        <ci>e_55</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_53</ci>
+        <ci>v_R5</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_55</ci>
+        <ci>v_R5</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_R5</ci>
+        <apply>
+          <times />
+          <ci>kappa_5</ci>
+          <apply>
+            <minus />
+            <apply>
+              <exp />
+              <apply>
+                <divide />
+                <ci>Af_R5</ci>
+                <apply>
+                  <times />
+                  <ci>R</ci>
+                  <ci>T</ci>
+                </apply>
+              </apply>
+            </apply>
+            <apply>
+              <exp />
+              <apply>
+                <divide />
+                <ci>Ar_R5</ci>
+                <apply>
+                  <times />
+                  <ci>R</ci>
+                  <ci>T</ci>
+                </apply>
+              </apply>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_70</ci>
+        <ci>mu_P10</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_P10</ci>
+        <ci>f_70</ci>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>x_P10</ci>
+        </apply>
+        <ci>v_P10</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>mu_P10</ci>
+        <apply>
+          <times />
+          <ci>R</ci>
+          <ci>T</ci>
+          <apply>
+            <ln />
+            <apply>
+              <times />
+              <ci>K_10</ci>
+              <ci>x_P10</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_75</ci>
+        <ci>mu_P11</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_P11</ci>
+        <ci>f_75</ci>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>x_P11</ci>
+        </apply>
+        <ci>v_P11</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>mu_P11</ci>
+        <apply>
+          <times />
+          <ci>R</ci>
+          <ci>T</ci>
+          <apply>
+            <ln />
+            <apply>
+              <times />
+              <ci>K_11</ci>
+              <ci>x_P11</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_83</ci>
+        <ci>mu_P12</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_P12</ci>
+        <ci>f_83</ci>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>x_P12</ci>
+        </apply>
+        <ci>v_P12</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>mu_P12</ci>
+        <apply>
+          <times />
+          <ci>R</ci>
+          <ci>T</ci>
+          <apply>
+            <ln />
+            <apply>
+              <times />
+              <ci>K_12</ci>
+              <ci>x_P12</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_79</ci>
+        <ci>mu_P13</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_P13</ci>
+        <ci>f_79</ci>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>x_P13</ci>
+        </apply>
+        <ci>v_P13</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>mu_P13</ci>
+        <apply>
+          <times />
+          <ci>R</ci>
+          <ci>T</ci>
+          <apply>
+            <ln />
+            <apply>
+              <times />
+              <ci>K_13</ci>
+              <ci>x_P13</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_59</ci>
+        <ci>mu_P8</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_P8</ci>
+        <ci>f_59</ci>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>x_P8</ci>
+        </apply>
+        <ci>v_P8</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>mu_P8</ci>
+        <apply>
+          <times />
+          <ci>R</ci>
+          <ci>T</ci>
+          <apply>
+            <ln />
+            <apply>
+              <times />
+              <ci>K_8</ci>
+              <ci>x_P8</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_65</ci>
+        <ci>mu_P9</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_P9</ci>
+        <ci>f_65</ci>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>x_P9</ci>
+        </apply>
+        <ci>v_P9</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>mu_P9</ci>
+        <apply>
+          <times />
+          <ci>R</ci>
+          <ci>T</ci>
+          <apply>
+            <ln />
+            <apply>
+              <times />
+              <ci>K_9</ci>
+              <ci>x_P9</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Af_R10</ci>
+        <ci>e_71</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Ar_R10</ci>
+        <ci>e_72</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_71</ci>
+        <ci>v_R10</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_72</ci>
+        <ci>v_R10</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_R10</ci>
+        <apply>
+          <times />
+          <ci>kappa_10</ci>
+          <apply>
+            <minus />
+            <apply>
+              <exp />
+              <apply>
+                <divide />
+                <ci>Af_R10</ci>
+                <apply>
+                  <times />
+                  <ci>R</ci>
+                  <ci>T</ci>
+                </apply>
+              </apply>
+            </apply>
+            <apply>
+              <exp />
+              <apply>
+                <divide />
+                <ci>Ar_R10</ci>
+                <apply>
+                  <times />
+                  <ci>R</ci>
+                  <ci>T</ci>
+                </apply>
+              </apply>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Af_R11</ci>
+        <ci>e_81</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Ar_R11</ci>
+        <ci>e_82</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_81</ci>
+        <ci>v_R11</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_82</ci>
+        <ci>v_R11</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_R11</ci>
+        <apply>
+          <times />
+          <ci>kappa_11</ci>
+          <apply>
+            <minus />
+            <apply>
+              <exp />
+              <apply>
+                <divide />
+                <ci>Af_R11</ci>
+                <apply>
+                  <times />
+                  <ci>R</ci>
+                  <ci>T</ci>
+                </apply>
+              </apply>
+            </apply>
+            <apply>
+              <exp />
+              <apply>
+                <divide />
+                <ci>Ar_R11</ci>
+                <apply>
+                  <times />
+                  <ci>R</ci>
+                  <ci>T</ci>
+                </apply>
+              </apply>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Af_R12</ci>
+        <ci>e_77</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Ar_R12</ci>
+        <ci>e_78</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_77</ci>
+        <ci>v_R12</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_78</ci>
+        <ci>v_R12</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_R12</ci>
+        <apply>
+          <times />
+          <ci>kappa_12</ci>
+          <apply>
+            <minus />
+            <apply>
+              <exp />
+              <apply>
+                <divide />
+                <ci>Af_R12</ci>
+                <apply>
+                  <times />
+                  <ci>R</ci>
+                  <ci>T</ci>
+                </apply>
+              </apply>
+            </apply>
+            <apply>
+              <exp />
+              <apply>
+                <divide />
+                <ci>Ar_R12</ci>
+                <apply>
+                  <times />
+                  <ci>R</ci>
+                  <ci>T</ci>
+                </apply>
+              </apply>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Af_R8</ci>
+        <ci>e_60</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Ar_R8</ci>
+        <ci>e_61</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_60</ci>
+        <ci>v_R8</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_61</ci>
+        <ci>v_R8</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_R8</ci>
+        <apply>
+          <times />
+          <ci>kappa_8</ci>
+          <apply>
+            <minus />
+            <apply>
+              <exp />
+              <apply>
+                <divide />
+                <ci>Af_R8</ci>
+                <apply>
+                  <times />
+                  <ci>R</ci>
+                  <ci>T</ci>
+                </apply>
+              </apply>
+            </apply>
+            <apply>
+              <exp />
+              <apply>
+                <divide />
+                <ci>Ar_R8</ci>
+                <apply>
+                  <times />
+                  <ci>R</ci>
+                  <ci>T</ci>
+                </apply>
+              </apply>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Af_R9</ci>
+        <ci>e_66</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Ar_R9</ci>
+        <ci>e_86</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_66</ci>
+        <ci>v_R9</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_86</ci>
+        <ci>v_R9</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_R9</ci>
+        <apply>
+          <times />
+          <ci>kappa_9</ci>
+          <apply>
+            <minus />
+            <apply>
+              <exp />
+              <apply>
+                <divide />
+                <ci>Af_R9</ci>
+                <apply>
+                  <times />
+                  <ci>R</ci>
+                  <ci>T</ci>
+                </apply>
+              </apply>
+            </apply>
+            <apply>
+              <exp />
+              <apply>
+                <divide />
+                <ci>Ar_R9</ci>
+                <apply>
+                  <times />
+                  <ci>R</ci>
+                  <ci>T</ci>
+                </apply>
+              </apply>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <!-- Junction equations
+ 0 junction #1-->
+      <apply>
+        <eq />
+        <ci>e_3</ci>
+        <ci>e_5</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_5</ci>
+        <ci>f_3</ci>
+      </apply>
+      <!-- 0 junction #2-->
+      <apply>
+        <eq />
+        <ci>e_7</ci>
+        <ci>e_8</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_10</ci>
+        <ci>e_8</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_8</ci>
+        <apply>
+          <minus />
+          <ci>f_7</ci>
+          <ci>f_10</ci>
+        </apply>
+      </apply>
+      <!-- 0 junction #3-->
+      <apply>
+        <eq />
+        <ci>e_21</ci>
+        <ci>e_23</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_22</ci>
+        <ci>e_23</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_23</ci>
+        <apply>
+          <plus />
+          <ci>f_21</ci>
+          <ci>f_22</ci>
+        </apply>
+      </apply>
+      <!-- 1 junction #1-->
+      <apply>
+        <eq />
+        <ci>f_7</ci>
+        <ci>f_6</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_9</ci>
+        <ci>f_6</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_6</ci>
+        <apply>
+          <plus />
+          <ci>e_7</ci>
+          <ci>e_9</ci>
+        </apply>
+      </apply>
+      <!-- 1 junction #2-->
+      <apply>
+        <eq />
+        <ci>f_14</ci>
+        <ci>f_13</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_15</ci>
+        <ci>f_13</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_18</ci>
+        <ci>f_13</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_13</ci>
+        <apply>
+          <plus />
+          <ci>e_14</ci>
+          <ci>e_15</ci>
+          <ci>e_18</ci>
+        </apply>
+      </apply>
+      <!-- 0 junction #4-->
+      <apply>
+        <eq />
+        <ci>e_25</ci>
+        <ci>e_24</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_18</ci>
+        <ci>e_24</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_24</ci>
+        <apply>
+          <plus />
+          <apply>
+            <minus />
+            <ci>f_25</ci>
+          </apply>
+          <ci>f_18</ci>
+        </apply>
+      </apply>
+      <!-- 0 junction #5-->
+      <apply>
+        <eq />
+        <ci>e_27</ci>
+        <ci>e_28</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_17</ci>
+        <ci>e_28</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_28</ci>
+        <apply>
+          <minus />
+          <ci>f_27</ci>
+          <ci>f_17</ci>
+        </apply>
+      </apply>
+      <!-- 0 junction #6-->
+      <apply>
+        <eq />
+        <ci>e_29</ci>
+        <ci>e_16</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_16</ci>
+        <apply>
+          <minus />
+          <ci>f_29</ci>
+        </apply>
+      </apply>
+      <!-- 1 junction #3-->
+      <apply>
+        <eq />
+        <ci>f_25</ci>
+        <ci>f_26</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_29</ci>
+        <ci>f_26</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_26</ci>
+        <apply>
+          <plus />
+          <ci>e_25</ci>
+          <ci>e_29</ci>
+        </apply>
+      </apply>
+      <!-- 0 junction #7-->
+      <apply>
+        <eq />
+        <ci>e_35</ci>
+        <ci>e_30</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_4</ci>
+        <ci>e_30</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_30</ci>
+        <apply>
+          <plus />
+          <apply>
+            <minus />
+            <ci>f_35</ci>
+          </apply>
+          <ci>f_4</ci>
+        </apply>
+      </apply>
+      <!-- 0 junction #8-->
+      <apply>
+        <eq />
+        <ci>e_37</ci>
+        <ci>e_2</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_40</ci>
+        <ci>e_2</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_2</ci>
+        <apply>
+          <plus />
+          <ci>f_37</ci>
+          <ci>f_40</ci>
+        </apply>
+      </apply>
+      <!-- 0 junction #9-->
+      <apply>
+        <eq />
+        <ci>e_33</ci>
+        <ci>e_34</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_41</ci>
+        <ci>e_34</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_34</ci>
+        <apply>
+          <minus />
+          <ci>f_33</ci>
+          <ci>f_41</ci>
+        </apply>
+      </apply>
+      <!-- 0 junction #10-->
+      <apply>
+        <eq />
+        <ci>e_31</ci>
+        <ci>e_39</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_38</ci>
+        <ci>e_39</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_39</ci>
+        <apply>
+          <plus />
+          <apply>
+            <minus />
+            <ci>f_31</ci>
+          </apply>
+          <ci>f_38</ci>
+        </apply>
+      </apply>
+      <!-- 0 junction #11-->
+      <apply>
+        <eq />
+        <ci>e_43</ci>
+        <ci>e_44</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_45</ci>
+        <ci>e_44</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_44</ci>
+        <apply>
+          <minus />
+          <ci>f_43</ci>
+          <ci>f_45</ci>
+        </apply>
+      </apply>
+      <!-- 0 junction #12-->
+      <apply>
+        <eq />
+        <ci>e_48</ci>
+        <ci>e_3</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_50</ci>
+        <ci>e_3</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_3</ci>
+        <apply>
+          <minus />
+          <apply>
+            <minus />
+            <ci>f_48</ci>
+          </apply>
+          <ci>f_50</ci>
+        </apply>
+      </apply>
+      <!-- 0 junction #13-->
+      <apply>
+        <eq />
+        <ci>e_49</ci>
+        <ci>e_50</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_54</ci>
+        <ci>e_50</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_50</ci>
+        <apply>
+          <plus />
+          <ci>f_49</ci>
+          <ci>f_54</ci>
+        </apply>
+      </apply>
+      <!-- 0 junction #14-->
+      <apply>
+        <eq />
+        <ci>e_47</ci>
+        <ci>e_51</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_52</ci>
+        <ci>e_51</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_51</ci>
+        <apply>
+          <minus />
+          <ci>f_47</ci>
+          <ci>f_52</ci>
+        </apply>
+      </apply>
+      <!-- 0 junction #15-->
+      <apply>
+        <eq />
+        <ci>e_56</ci>
+        <ci>e_57</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_1</ci>
+        <ci>e_57</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_57</ci>
+        <apply>
+          <minus />
+          <ci>f_56</ci>
+          <ci>f_1</ci>
+        </apply>
+      </apply>
+      <!-- 1 junction #4-->
+      <apply>
+        <eq />
+        <ci>f_33</ci>
+        <ci>f_32</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_40</ci>
+        <ci>f_32</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_32</ci>
+        <apply>
+          <plus />
+          <ci>e_33</ci>
+          <ci>e_40</ci>
+        </apply>
+      </apply>
+      <!-- 1 junction #5-->
+      <apply>
+        <eq />
+        <ci>f_37</ci>
+        <ci>f_36</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_38</ci>
+        <ci>f_36</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_36</ci>
+        <apply>
+          <plus />
+          <ci>e_37</ci>
+          <ci>e_38</ci>
+        </apply>
+      </apply>
+      <!-- 1 junction #6-->
+      <apply>
+        <eq />
+        <ci>f_41</ci>
+        <ci>f_42</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_48</ci>
+        <ci>f_42</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_42</ci>
+        <apply>
+          <plus />
+          <ci>e_41</ci>
+          <ci>e_48</ci>
+        </apply>
+      </apply>
+      <!-- 1 junction #7-->
+      <apply>
+        <eq />
+        <ci>f_45</ci>
+        <ci>f_46</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_49</ci>
+        <ci>f_46</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_46</ci>
+        <apply>
+          <plus />
+          <ci>e_45</ci>
+          <ci>e_49</ci>
+        </apply>
+      </apply>
+      <!-- 1 junction #8-->
+      <apply>
+        <eq />
+        <ci>f_52</ci>
+        <ci>f_53</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_54</ci>
+        <ci>f_53</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_53</ci>
+        <apply>
+          <plus />
+          <ci>e_52</ci>
+          <ci>e_54</ci>
+        </apply>
+      </apply>
+      <!-- 1 junction #9-->
+      <apply>
+        <eq />
+        <ci>f_56</ci>
+        <ci>f_55</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_58</ci>
+        <ci>f_55</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_55</ci>
+        <apply>
+          <plus />
+          <ci>e_56</ci>
+          <ci>e_58</ci>
+        </apply>
+      </apply>
+      <!-- 0 junction #16-->
+      <apply>
+        <eq />
+        <ci>e_60</ci>
+        <ci>e_59</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_20</ci>
+        <ci>e_59</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_59</ci>
+        <apply>
+          <plus />
+          <apply>
+            <minus />
+            <ci>f_60</ci>
+          </apply>
+          <ci>f_20</ci>
+        </apply>
+      </apply>
+      <!-- 0 junction #17-->
+      <apply>
+        <eq />
+        <ci>e_63</ci>
+        <ci>e_19</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_68</ci>
+        <ci>e_19</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_19</ci>
+        <apply>
+          <plus />
+          <ci>f_63</ci>
+          <ci>f_68</ci>
+        </apply>
+      </apply>
+      <!-- 0 junction #18-->
+      <apply>
+        <eq />
+        <ci>e_64</ci>
+        <ci>e_65</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_66</ci>
+        <ci>e_65</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_65</ci>
+        <apply>
+          <minus />
+          <ci>f_64</ci>
+          <ci>f_66</ci>
+        </apply>
+      </apply>
+      <!-- 0 junction #19-->
+      <apply>
+        <eq />
+        <ci>e_69</ci>
+        <ci>e_68</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_73</ci>
+        <ci>e_68</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_68</ci>
+        <apply>
+          <plus />
+          <ci>f_69</ci>
+          <ci>f_73</ci>
+        </apply>
+      </apply>
+      <!-- 0 junction #20-->
+      <apply>
+        <eq />
+        <ci>e_67</ci>
+        <ci>e_70</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_71</ci>
+        <ci>e_70</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_70</ci>
+        <apply>
+          <minus />
+          <ci>f_67</ci>
+          <ci>f_71</ci>
+        </apply>
+      </apply>
+      <!-- 0 junction #21-->
+      <apply>
+        <eq />
+        <ci>e_74</ci>
+        <ci>e_75</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_80</ci>
+        <ci>e_75</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_75</ci>
+        <apply>
+          <minus />
+          <ci>f_74</ci>
+          <ci>f_80</ci>
+        </apply>
+      </apply>
+      <!-- 0 junction #22-->
+      <apply>
+        <eq />
+        <ci>e_84</ci>
+        <ci>e_11</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_85</ci>
+        <ci>e_11</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_11</ci>
+        <apply>
+          <minus />
+          <apply>
+            <minus />
+            <ci>f_84</ci>
+          </apply>
+          <ci>f_85</ci>
+        </apply>
+      </apply>
+      <!-- 0 junction #23-->
+      <apply>
+        <eq />
+        <ci>e_78</ci>
+        <ci>e_79</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_12</ci>
+        <ci>e_79</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_79</ci>
+        <apply>
+          <minus />
+          <ci>f_78</ci>
+          <ci>f_12</ci>
+        </apply>
+      </apply>
+      <!-- 0 junction #24-->
+      <apply>
+        <eq />
+        <ci>e_76</ci>
+        <ci>e_83</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_82</ci>
+        <ci>e_83</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_83</ci>
+        <apply>
+          <plus />
+          <apply>
+            <minus />
+            <ci>f_76</ci>
+          </apply>
+          <ci>f_82</ci>
+        </apply>
+      </apply>
+      <!-- 1 junction #10-->
+      <apply>
+        <eq />
+        <ci>f_62</ci>
+        <ci>f_61</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_63</ci>
+        <ci>f_61</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_64</ci>
+        <ci>f_61</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_61</ci>
+        <apply>
+          <plus />
+          <ci>e_63</ci>
+          <ci>e_64</ci>
+          <ci>e_62</ci>
+        </apply>
+      </apply>
+      <!-- 1 junction #11-->
+      <apply>
+        <eq />
+        <ci>f_67</ci>
+        <ci>f_86</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_69</ci>
+        <ci>f_86</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_86</ci>
+        <apply>
+          <plus />
+          <ci>e_67</ci>
+          <ci>e_69</ci>
+        </apply>
+      </apply>
+      <!-- 1 junction #12-->
+      <apply>
+        <eq />
+        <ci>f_73</ci>
+        <ci>f_72</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_74</ci>
+        <ci>f_72</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_72</ci>
+        <apply>
+          <plus />
+          <ci>e_73</ci>
+          <ci>e_74</ci>
+        </apply>
+      </apply>
+      <!-- 1 junction #13-->
+      <apply>
+        <eq />
+        <ci>f_80</ci>
+        <ci>f_81</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_84</ci>
+        <ci>f_81</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_81</ci>
+        <apply>
+          <plus />
+          <ci>e_80</ci>
+          <ci>e_84</ci>
+        </apply>
+      </apply>
+      <!-- 1 junction #14-->
+      <apply>
+        <eq />
+        <ci>f_76</ci>
+        <ci>f_77</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>f_85</ci>
+        <ci>f_77</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>e_77</ci>
+        <apply>
+          <plus />
+          <ci>e_76</ci>
+          <ci>e_85</ci>
+        </apply>
+      </apply>
+    </math>
+  </component>
+  <rdf:RDF xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:ro="http://www.obofoundry.org/ro/ro.owl#" xmlns:opb="http://bhi.washington.edu/OPB#">
+    <rdf:Description rdf:about="#environment.R">
+      <bqbiol:is rdf:resource="https://identifiers.org/opb/OPB_00410" />
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_9">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_127">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.K_H">
+      <dcterms:description>species thermodynamic constant</dcterms:description>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.mu_P_i">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_216">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.x_Ke">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_21">
+          <semsim:physicalPropertyOf>
+            <rdf:Description rdf:about="#entity_1">
+              <ro:part_of>
+                <rdf:Description rdf:about="#entity_2">
+                  <ro:part_of>
+                    <rdf:Description rdf:about="#entity_3">
+                      <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/cl/CL:0002131" />
+                    </rdf:Description>
+                  </ro:part_of>
+                  <semsim:hasPhysicalDefinition rdf:resource="http://identifiers.org/fma/FMA:70022" />
+                </rdf:Description>
+              </ro:part_of>
+              <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/chebi/CHEBI:29103" />
+            </rdf:Description>
+          </semsim:physicalPropertyOf>
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00340" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.t">
+      <bqbiol:is rdf:resource="https://identifiers.org/opb/OPB_01023" />
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_7">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_125">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_8">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_126">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.x_P10">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_37">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00340" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.x_P_i">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_28">
+          <semsim:physicalPropertyOf>
+            <rdf:Description rdf:about="#entity_10">
+              <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/chebi/CHEBI:24838" />
+            </rdf:Description>
+          </semsim:physicalPropertyOf>
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00340" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_6">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_124">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_H">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_201">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_R15">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_223">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_80">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_193">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_19">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_61">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.F">
+      <bqbiol:is rdf:resource="https://identifiers.org/opb/OPB_00089" />
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_5">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_123">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_8">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_50">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_9">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_51">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_81">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_194">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_18">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_60">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.kappa_8">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_18">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_01296" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_82">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_195">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_R13">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_220">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.Ar_R6">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_225">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.mu_P10">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_264">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.x_MgATP">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_24">
+          <semsim:physicalPropertyOf>
+            <rdf:Description rdf:about="#entity_7">
+              <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/chebi/CHEBI:30617" />
+            </rdf:Description>
+          </semsim:physicalPropertyOf>
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00340" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.x_H">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_20">
+          <semsim:physicalPropertyOf>
+            <rdf:Description rdf:about="#entity_0">
+              <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/chebi/CHEBI:24636" />
+            </rdf:Description>
+          </semsim:physicalPropertyOf>
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00340" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_70">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_183">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_17">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_59">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_29">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_63">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.x_P1">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_31">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00340" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.x_P13">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_40">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00340" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.x_Ki">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_22">
+          <semsim:physicalPropertyOf>
+            <rdf:Description rdf:about="#entity_4">
+              <ro:part_of>
+                <rdf:Description rdf:about="#entity_5">
+                  <ro:part_of rdf:resource="#entity_3" />
+                  <semsim:name>Intracellular space</semsim:name>
+                </rdf:Description>
+              </ro:part_of>
+              <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/chebi/CHEBI:29103" />
+            </rdf:Description>
+          </semsim:physicalPropertyOf>
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00340" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.kappa_9">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_19">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_01296" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_83">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_196">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_71">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_184">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.Ar_R7">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_228">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_R14">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_236">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.mu_P11">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_266">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_28">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_62">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_16">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_58">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.x_P14">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_29">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00340" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.x_P2">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_32">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00340" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.x_MgADP">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_23">
+          <semsim:physicalPropertyOf>
+            <rdf:Description rdf:about="#entity_6">
+              <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/chebi/CHEBI:87194" />
+            </rdf:Description>
+          </semsim:physicalPropertyOf>
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00340" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.K_MgADP">
+      <dcterms:description>species thermodynamic constant</dcterms:description>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_84">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_197">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_R11">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_281">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_72">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_185">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.Ar_R8">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_286">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_60">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_174">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.kappa_6">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_16">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_01296" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_15">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_57">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_39">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_73">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_27">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_4">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.x_P3">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_33">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00340" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.x_P11">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_38">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00340" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_85">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_198">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_73">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_186">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.Ar_R9">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_289">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_61">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_175">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_R12">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_284">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.kappa_7">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_17">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_01296" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_26">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_3">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_14">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_56">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.x_P4">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_34">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00340" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_38">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_72">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.K_MgATP">
+      <dcterms:description>species thermodynamic constant</dcterms:description>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.x_P12">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_39">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00340" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.Ar_R11">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_280">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_18">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_136">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.Ar_R2">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_253">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.q_mem">
+      <bqbiol:is rdf:resource="https://identifiers.org/opb/OPB_01346" />
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.x_P5">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_35">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00340" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_81">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_113">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.K_P">
+      <dcterms:description>species thermodynamic constant</dcterms:description>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.K_Nae">
+      <dcterms:description>species thermodynamic constant</dcterms:description>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.Ar_R12">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_283">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_19">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_137">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_80">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_112">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.Ar_R3">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_256">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.x_P6">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_36">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00340" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.Ar_R13">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_219">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.mu_MgADP">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_206">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.Ar_R4">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_259">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_Nai">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_213">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.x_P7">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_27">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00340" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.x_P15">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_30">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00340" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.mu_MgATP">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_208">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.Ar_R14">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_235">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.mu_Nai">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_212">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.Ar_R5">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_262">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.x_P8">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_41">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00340" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_P9">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_275">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.K_4">
+      <dcterms:description>species thermodynamic constant</dcterms:description>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.x_P9">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_42">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00340" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_P8">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_273">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.K_Nai">
+      <dcterms:description>species thermodynamic constant</dcterms:description>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.K_5">
+      <dcterms:description>species thermodynamic constant</dcterms:description>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_P7">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_215">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.T">
+      <bqbiol:is rdf:resource="https://identifiers.org/opb/OPB_00293" />
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_Nae">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_211">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_P6">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_248">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.K_1">
+      <dcterms:description>species thermodynamic constant</dcterms:description>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.K_3">
+      <dcterms:description>species thermodynamic constant</dcterms:description>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.Ar_R10">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_277">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.Ar_R1">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_250">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_P5">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_246">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_R9">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_290">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.K_2">
+      <dcterms:description>species thermodynamic constant</dcterms:description>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_46">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_161">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.K_8">
+      <dcterms:description>species thermodynamic constant</dcterms:description>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.mu_P1">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_237">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.mu_Ki">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_204">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_34">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_149">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_10">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_128">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_P_i">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_217">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_P4">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_244">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_R8">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_287">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.Af_R4">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_258">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.Af_R10">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_276">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.x_Nae">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_25">
+          <semsim:physicalPropertyOf>
+            <rdf:Description rdf:about="#entity_8">
+              <ro:part_of rdf:resource="#entity_2" />
+              <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/chebi/CHEBI:29101" />
+            </rdf:Description>
+          </semsim:physicalPropertyOf>
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00340" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_53">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_87">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_41">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_75">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_77">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_109">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_65">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_97">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.mu_H">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_200">
+          <semsim:physicalPropertyOf rdf:resource="#metaid6" />
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_59">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_173">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_47">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_162">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_35">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_150">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.mu_P2">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_239">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.K_9">
+      <dcterms:description>species thermodynamic constant</dcterms:description>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_11">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_129">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_P3">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_242">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_R7">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_229">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.Af_R5">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_261">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.Af_R11">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_279">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_40">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_74">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_64">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_96">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_52">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_86">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.q_mem">
+      <bqbiol:is rdf:resource="https://identifiers.org/opb/OPB_01346" />
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_76">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_108">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_48">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_163">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_36">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_151">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.K_6">
+      <dcterms:description>species thermodynamic constant</dcterms:description>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_24">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_139">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_12">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_130">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.kappa_15">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_11">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_01296" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_P2">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_240">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.Af_R2">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_252">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_R6">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_226">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.Af_R12">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_282">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#metaid0" semsim:modelName="Terkildsen_NaK_BG">
+      <semsim:modelName>NaK_ATPase_BG_annotated - test</semsim:modelName>
+      <semsim:modelName>NaK_ATPase_BG_annotated_test</semsim:modelName>
+      <semsim:modelName>Terkildsen_NaK_BG_test</semsim:modelName>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_51">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_85">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_75">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_107">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_63">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_95">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_49">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_164">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_37">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_152">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_25">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_140">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_13">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_131">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.K_7">
+      <dcterms:description>species thermodynamic constant</dcterms:description>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_R5">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_263">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.Af_R3">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_255">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.Af_R13">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_218">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_50">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_84">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_86">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_118">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_74">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_106">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_Ki">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_205">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_P1">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_238">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_38">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_153">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_26">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_141">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.Ar_R15">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_222">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_14">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_132">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.x_Nai">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_26">
+          <semsim:physicalPropertyOf>
+            <rdf:Description rdf:about="#entity_9">
+              <ro:part_of rdf:resource="#entity_5" />
+              <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/chebi/CHEBI:29101" />
+            </rdf:Description>
+          </semsim:physicalPropertyOf>
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00340" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.K_15">
+      <dcterms:description>species thermodynamic constant</dcterms:description>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.mu_Ke">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_202">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_MgATP">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_209">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_R4">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_260">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.Af_R14">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_234">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_73">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_105">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_61">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_94">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_85">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_117">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_27">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_142">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_15">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_133">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_39">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_154">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.Af_R1">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_249">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_60">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_93">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_84">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_116">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_72">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_104">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.Af_R15">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_221">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_MgADP">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_207">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_R3">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_257">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_16">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_134">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_28">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_143">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_71">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_103">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_83">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_115">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_R2">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_254">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.mu_Nae">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_210">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_29">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_144">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_17">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_135">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_82">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_114">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_70">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_102">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_Ke">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_203">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_R1">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_251">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.mu_P14">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_230">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_74">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_187">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.K_11">
+      <dcterms:description>species thermodynamic constant</dcterms:description>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_50">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_165">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_P15">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_233">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.kappa_4">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_14">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_01296" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_3">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_45">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_86">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_199">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_13">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_55">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_37">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_71">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_25">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_2">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_49">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_83">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.mu_P15">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_232">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_63">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_176">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.kappa_10">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_6">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_01296" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_51">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_166">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_R10">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_278">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.K_12">
+      <dcterms:description>species thermodynamic constant</dcterms:description>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_2">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_44">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.kappa_5">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_15">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_01296" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_75">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_188">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_24">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_1">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_12">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_54">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_48">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_82">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_36">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_70">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.zF_5">
+      <dcterms:description>Charge translocated by R5</dcterms:description>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.mu_P7">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_214">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_52">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_167">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_40">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_155">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.K_13">
+      <dcterms:description>species thermodynamic constant</dcterms:description>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_P13">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_271">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_1">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_43">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_76">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_189">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_64">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_177">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.mu_P12">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_268">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_35">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_69">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.kappa_1">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_5">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_01296" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_59">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_92">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_47">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_81">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_11">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_53">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.mu_P8">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_272">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.mu_P13">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_270">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_41">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_156">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_P14">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_231">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.K_14">
+      <dcterms:description>species thermodynamic constant</dcterms:description>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_77">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_190">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_65">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_178">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.zF_8">
+      <dcterms:description>Charge translocated by R8</dcterms:description>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.kappa_3">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_13">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_01296" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_53">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_168">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.kappa_2">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_12">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_01296" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_46">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_80">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_34">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_68">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.K_Ki">
+      <dcterms:description>species thermodynamic constant (Ki)</dcterms:description>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.mu_P9">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_274">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_10">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_52">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.mu_P5">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_245">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.T">
+      <bqbiol:is rdf:resource="https://identifiers.org/opb/OPB_00293" />
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_30">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_145">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_4">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_122">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_P11">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_267">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.Af_R9">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_288">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_7">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_49">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.kappa_13">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_9">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_01296" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_78">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_191">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_66">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_179">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_54">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_169">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_42">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_157">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_57">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_91">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_45">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_79">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_69">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_101">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_33">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_67">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.mu_P6">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_247">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_79">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_192">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_P12">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_269">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_6">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_48">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_67">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_180">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_55">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_170">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.kappa_14">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_10">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_01296" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_43">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_158">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_31">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_146">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_3">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_121">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_68">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_100">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_56">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_90">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.F">
+      <bqbiol:is rdf:resource="https://identifiers.org/opb/OPB_00089" />
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_20">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_0">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_44">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_78">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_32">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_66">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_68">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_181">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.mu_P3">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_241">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.Af_R7">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_227">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_5">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_47">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.kappa_11">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_7">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_01296" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_56">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_171">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_44">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_159">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.R">
+      <bqbiol:is rdf:resource="https://identifiers.org/opb/OPB_00410" />
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_32">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_147">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_2">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_120">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_20">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_138">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_79">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_111">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_67">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_99">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.Af_R6">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_224">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_31">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_65">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_55">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_89">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_43">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_77">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_69">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_182">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_57">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_172">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.mu_P4">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_243">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_P10">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_265">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.t">
+      <bqbiol:is rdf:resource="https://identifiers.org/opb/OPB_01023" />
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.K_10">
+      <dcterms:description>species thermodynamic constant</dcterms:description>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.Af_R8">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_285">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.kappa_12">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_8">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_01296" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_45">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_160">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_1">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_119">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.f_33">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_148">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00592" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_4">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_46">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_78">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_110">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_42">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_76">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.K_Ke">
+      <dcterms:description>species thermodynamic constant</dcterms:description>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_30">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_64">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_66">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_98">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.e_54">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_88">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+  </rdf:RDF>
+</model>
+
